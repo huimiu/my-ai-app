@@ -4,7 +4,7 @@ import { AzureKeyCredential, OpenAIClient } from "@azure/openai";
 
 // Create an OpenAI API client (that's edge friendly!)
 const client = new OpenAIClient(
-  "https://YOUR-AZURE-OPENAI-ENDPOINT",
+  "https://hui-ai-instance.openai.azure.com/",
   new AzureKeyCredential(process.env.AZURE_OPENAI_API_KEY!)
 );
 
@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
   // Ask Azure OpenAI for a streaming chat completion given the prompt
   const response = await client.streamChatCompletions(
-    "YOUR_DEPLOYED_INSTANCE_NAME",
+    "hui-gpt-4-32k",
     messages
   );
 
